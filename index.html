@@ -6,10 +6,39 @@
     <!--Style Components-->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
 </head>
 
-<body>
+<body ng-controller="MainController">
+    <div class="container">
 
+        <div ng-repeat="question in questionList" container="question">
+            <div class="questionTitle row">
+                <h2>Question: {{question.title}}</h2>
+            </div>
+            <div class="questionBody row">
+                {{question.body}}
+                <ng-include src="'vote.html'"></ng-include>
+            </div>
+            <div ng-repeat="comment in question.comment" class="comment row">
+                {{comment.body}}
+                <ng-include src="'vote.html'"></ng-include>
+            </div>
+            <div>
+                <!--<div ng-repeat="answer in question.answer" class="answerTitle row">
+                <h2>Answer Title: {{answer.title}} </h2>
+            </div>-->
+                <div ng-repeat="answer in question.answer" class="answerBody row">
+                    {{answer.body}}
+                    <ng-include src="'vote.html'"></ng-include>
+                    <div ng-repeat="comment in answer.comment" class="comment row">
+                        {{comment.body}}
+                        <ng-include src="'vote.html'"></ng-include>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!--JS Components-->
@@ -18,6 +47,9 @@
     <script src="bower_components/angular/angular.min.js"></script>
     <!--Custom Application-->
     <script src="app/app.js"></script>
+    <script src="app/controller.js">
+
+    </script>
 </body>
 
 </html>

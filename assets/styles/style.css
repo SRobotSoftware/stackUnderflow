@@ -1,0 +1,18 @@
+.questionTitle{
+    background:  black;
+    color: white;
+}
+.questionBody{
+    background: cadetblue;
+}
+.answerTitle{
+    background: darkgray;
+    color:
+}
+.answerBody{
+     background:grey;
+}
+.comment{
+    background: cornsilk;
+    text-align: center;
+}
