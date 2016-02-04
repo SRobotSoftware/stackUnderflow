@@ -12,7 +12,7 @@
 <body ng-controller="MainController">
     <div class="container well well-lg">
         <div class="page-header">
-            <h1>Hal has answers<small></small></h1>
+            <h1>Hal has answers <small> why not ask him a <span ng-click="open()">question</span></small></h1>
         </div>
     </div>
     <div class="container well well-lg">
@@ -25,19 +25,12 @@
 
 
 <!--this is our form-->
-    <form action="submit">
+    <!--<form action="submit">
         <input type = "text" placeholder = "question title" />
         <input type = "text" placeholder = "question body" />
-        
-        
-        
-        
-        
-        
-        
-    </form>
-    
-
+        <button type ="submit">Submit</button>
+    </form>-->
+ 
 
 
 
@@ -78,9 +71,11 @@
 
 
     <!--JS Components-->
+    
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
+    <script src="assets/plugins/ui-bootstrap/ui-bootstrap.min.js"></script>
     <!--Custom Application-->
     <script src="app/app.js"></script>
     <script src="app/controller.js">

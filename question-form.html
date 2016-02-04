@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <h3 class="modal-title">I'm a modal!</h3>
+</div>
+<div class="modal-body">
+    <div class="form">
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" ng-model="newQuestion.title" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="question">Question:</label>
+            <textarea type="text" ng-model="newQuestion.body" class="form-control" rows="10"></textarea>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>
