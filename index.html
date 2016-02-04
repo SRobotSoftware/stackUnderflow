@@ -1,5 +1,5 @@
 <html ng-app="MYMODULE">
-hello world
+
 <head>
     <meta charset="UTF-8">
     <title>Stack Underflow</title>
@@ -79,11 +79,13 @@ hello world
                 <ul ng-if="obj.comments">
                     <li ng-repeat="obj in obj.comments" ng-include="'questionView'">
                     </li>
+                        <button> Submit Comment</button>
                 </ul>
 
                 <ul ng-if="obj.answers" class="list-group">
                     <li class="list-group-item alert alert-success" ng-repeat="obj in obj.answers" ng-include="'questionView'">
                     </li>
+                        <button>Submit Answer</button>
                 </ul>
            </div>
     </script>
