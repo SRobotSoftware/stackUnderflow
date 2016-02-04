@@ -62,32 +62,31 @@
     <script src="app/controller.js">
 
     </script>
-    
+
+
     <script type="text/ng-template" id="questionView">
-            <div class="panel panel-default">
-                <h1 ng-if="obj.title">{{obj.title}}</h1>
-                <p>{{ obj.body }}</p>
+        <div class="panel panel-default">
+            <h1 ng-if="obj.title">{{obj.title}}</h1>
+            <p>{{ obj.body }}</p>
+            <ul ng-if="obj.vote || obj.vote === 0">
+                <div class="">
+                    <a ng-click="incVote(obj)" class="glyphicon glyphicon-chevron-up"></a>
+                    <div>{{obj.vote}}</div>
+                    <a ng-click="decVote(obj)"class="glyphicon glyphicon-chevron-down"></a>
+                </div>
+            </ul>
+            <ul ng-if="obj.comments">
+                <li ng-repeat="obj in obj.comments" ng-include="'questionView'">
+                </li>
+                <button ng-click="submitComment()">Submit Comment</button>
+            </ul> 
 
-                <ul ng-if="obj.vote">
-                    <div class="">
-                        <a class="glyphicon glyphicon-chevron-up"></a>
-                        <div>{{obj.vote}}</div>
-                        <a class="glyphicon glyphicon-chevron-down"></a>
-                    </div>
-                </ul>
-
-                <ul ng-if="obj.comments">
-                    <li ng-repeat="obj in obj.comments" ng-include="'questionView'">
-                    </li>
-                        <button> Submit Comment</button>
-                </ul>
-
-                <ul ng-if="obj.answers" class="list-group">
-                    <li class="list-group-item alert alert-success" ng-repeat="obj in obj.answers" ng-include="'questionView'">
-                    </li>
-                        <button>Submit Answer</button>
-                </ul>
-           </div>
+            <ul ng-if="obj.answers" class="list-group">
+                <li class="list-group-item alert alert-success" ng-repeat="obj in obj.answers" ng-include="'questionView'">
+                </li>
+                <button ng-click="submitAnswer()">Submit Answer</button>
+            </ul>
+        </div>
     </script>
 </body>
 
