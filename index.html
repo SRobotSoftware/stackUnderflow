@@ -6,10 +6,51 @@
     <!--Style Components-->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
 </head>
 
-<body>
+<body ng-controller="MainController">
+    <div class="container well well-lg">
+        <div class="page-header">
+            <h1>Hal has answers<small></small></h1>
+        </div>
+    </div>
+    <div class="container well well-lg">
 
+        <div class="panel panel-default">
+            <ul>
+                <li ng-repeat="obj in questionList" ng-include="'questionView'"></li>
+            </ul>
+        </div>
+
+
+        <!--<div class="panel panel-default" ng-repeat="t in questionList" container="question">
+            <div class="questionTitle row panel-heading well well-lg">
+                <h2>Question: {{t.title}}</h2>
+            </div>
+            <div class="questionBody row panel-body well well-sm">
+                {{t.body}}
+                <ng-include src="'vote.html'"></ng-include>
+            </div>
+            <div ng-repeat="t in t.comment" class="comment row panel-body well well-sm">
+                {{t.body}}
+                <ng-include src="'vote.html'"></ng-include>
+            </div>
+            <div>
+                <div ng-repeat="answer in question.answer" class="answerTitle row">
+                <h2>Answer Title: {{answer.title}} </h2>
+            </div>
+                <div ng-repeat="t in t.answer" class="answerBody row panel-body well well-sm">
+                    {{t.body}}
+                    <ng-include src="'vote.html'"></ng-include>
+                    <div ng-repeat="t in t.comment" class="comment row panel-body well well-sm">
+                        {{t.body}}
+                        <ng-include src="'vote.html'"></ng-include>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </div>
 
 
     <!--JS Components-->
@@ -18,6 +59,34 @@
     <script src="bower_components/angular/angular.min.js"></script>
     <!--Custom Application-->
     <script src="app/app.js"></script>
+    <script src="app/controller.js">
+
+    </script>
+    
+    <script type="text/ng-template" id="questionView">
+            <div class="panel panel-default">
+                <h1 ng-if="obj.title">{{obj.title}}</h1>
+                <p>{{ obj.body }}</p>
+
+                <ul ng-if="obj.vote">
+                    <div class="">
+                        <div class="glyphicon glyphicon-chevron-up"></div>
+                        <div>{{obj.vote}}</div>
+                        <div class="glyphicon glyphicon-chevron-down"></div>
+                    </div>
+                </ul>
+
+                <ul ng-if="obj.comments">
+                    <li ng-repeat="obj in obj.comments" ng-include="'questionView'">
+                    </li>
+                </ul>
+
+                <ul ng-if="obj.answers" class="list-group">
+                    <li class="list-group-item alert alert-success" ng-repeat="obj in obj.answers" ng-include="'questionView'">
+                    </li>
+                </ul>
+           </div>
+        </script>
 </body>
 
 </html>

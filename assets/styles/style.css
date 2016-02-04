@@ -1,0 +1,29 @@
+.questionTitle{
+    background:  black;
+    color: white;
+}
+.questionBody{
+    background: dimgray;
+}
+.answerTitle{
+    background: darkgray;
+    color:
+}
+.answerBody{
+     background:grey;
+}
+.comment{
+    background: cornsilk;
+    text-align: center;
+    /*border: 1 solid black*/
+}
+.page-header{
+    text-align: center;
+    background: lightgrey;
+    /*border: 1px black solid;*/
+    margin-top: 20px;
+
+}
+.container{
+    /*border: 1px solid black;*/
+}
