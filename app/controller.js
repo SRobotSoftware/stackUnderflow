@@ -1,5 +1,6 @@
 app.controller("MainController", function ($scope, $uibModal) {
-    $scope.test = "test"
+    $scope.isCollapsed = true;
+    $scope.test = "test";
     $scope.incVote = function (obj) {
         obj.vote++;
     }
@@ -25,7 +26,10 @@ app.controller("MainController", function ($scope, $uibModal) {
 
         modalInstance.result.then(function (newQuestion) {
             debugger;
-            newQuestion.date = Date.now();
+            newQuestion.dateSubmitted = Date.now();
+            newQuestion.comments = [];
+            newQuestion.answers = [];
+            newQuestion.vote = 0;
             $scope.questionList.push(newQuestion);
         }, function () {
             console.log('Modal dismissed at: ' + new Date());

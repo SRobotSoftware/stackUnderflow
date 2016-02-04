@@ -12,101 +12,55 @@
 <body ng-controller="MainController">
     <div class="container well well-lg">
         <div class="page-header">
-            <h1>Hal has answers <small> why not ask him a <span ng-click="open()">question</span></small></h1>
+            <h1>Hal has answers <small> Click HAL to ask a question</small></h1>
+            <span ng-click="open()"><img src="assets/img/hal.gif" height = "100px" alt="hal image"></span>
         </div>
     </div>
     <div class="container well well-lg">
 
         <div class="panel panel-default">
-            <ul>
-                <li ng-repeat="obj in questionList" ng-include="'questionView'"></li>
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="obj in questionList" ng-include="'questionView'"></li>
             </ul>
         </div>
-
-
-<!--this is our form-->
-    <!--<form action="submit">
-        <input type = "text" placeholder = "question title" />
-        <input type = "text" placeholder = "question body" />
-        <button type ="submit">Submit</button>
-    </form>-->
- 
-
-
-
-
-
-
-
-
-<!--end of form-->
-
-        <!--<div class="panel panel-default" ng-repeat="t in questionList" container="question">
-            <div class="questionTitle row panel-heading well well-lg">
-                <h2>Question: {{t.title}}</h2>
-            </div>
-            <div class="questionBody row panel-body well well-sm">
-                {{t.body}}
-                <ng-include src="'vote.html'"></ng-include>
-            </div>
-            <div ng-repeat="t in t.comment" class="comment row panel-body well well-sm">
-                {{t.body}}
-                <ng-include src="'vote.html'"></ng-include>
-            </div>
-            <div>
-                <div ng-repeat="answer in question.answer" class="answerTitle row">
-                <h2>Answer Title: {{answer.title}} </h2>
-            </div>
-                <div ng-repeat="t in t.answer" class="answerBody row panel-body well well-sm">
-                    {{t.body}}
-                    <ng-include src="'vote.html'"></ng-include>
-                    <div ng-repeat="t in t.comment" class="comment row panel-body well well-sm">
-                        {{t.body}}
-                        <ng-include src="'vote.html'"></ng-include>
-                    </div>
-                </div>
-            </div>
-        </div>-->
     </div>
-
-
-    <!--JS Components-->
-    
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="bower_components/angular/angular.min.js"></script>
-    <script src="assets/plugins/ui-bootstrap/ui-bootstrap.min.js"></script>
-    <!--Custom Application-->
-    <script src="app/app.js"></script>
-    <script src="app/controller.js">
-
-    </script>
 
 
     <script type="text/ng-template" id="questionView">
         <div class="panel panel-default">
             <h1 ng-if="obj.title">{{obj.title}}</h1>
-            <p>{{ obj.body }}</p>
-            <ul ng-if="obj.vote || obj.vote === 0">
-                <div class="">
-                    <a ng-click="incVote(obj)" class="glyphicon glyphicon-chevron-up"></a>
-                    <div>{{obj.vote}}</div>
-                    <a ng-click="decVote(obj)"class="glyphicon glyphicon-chevron-down"></a>
-                </div>
-            </ul>
-            <ul ng-if="obj.comments">
-                <li ng-repeat="obj in obj.comments" ng-include="'questionView'">
+            <a class="pull-right glyphicon" ng-click="isCollapsed = !isCollapsed" ng-class="{'glyphicon-chevron-down': !isCollapsed, 'glyphicon-chevron-right': isCollapsed}"></a>
+            <div uib-collapse="isCollapsed">
+                <p>{{ obj.body }}</p>
+                <ul ng-if="obj.vote || obj.vote === 0">
+                    <div class="">
+                        <a ng-click="incVote(obj)" class="glyphicon glyphicon-chevron-up"></a>
+                        <div>{{obj.vote}}</div>
+                        <a ng-click="decVote(obj)" class="glyphicon glyphicon-chevron-down"></a>
+                    </div>
+                </ul>
+            </div>
+            <ul class="list-group" ng-if="obj.comments">
+                <li class="list-group-item" ng-repeat="obj in obj.comments" ng-include="'questionView'">
                 </li>
                 <button ng-click="submitComment()">Submit Comment</button>
-            </ul> 
+            </ul>
 
-            <ul ng-if="obj.answers" class="list-group">
+            <ul class="list-group" ng-if="obj.answers" class="list-group">
                 <li class="list-group-item alert alert-success" ng-repeat="obj in obj.answers" ng-include="'questionView'">
                 </li>
                 <button ng-click="submitAnswer()">Submit Answer</button>
             </ul>
         </div>
     </script>
+    <!--JS Components-->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="assets/plugins/ui-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controller.js"></script>
 </body>
 
 </html>

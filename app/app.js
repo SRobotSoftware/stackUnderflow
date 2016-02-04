@@ -1,2 +1,2 @@
-var app = angular.module('MYMODULE', ['ui.bootstrap']);
+var app = angular.module('MYMODULE', ['ui.bootstrap', 'ngAnimate']);
 
