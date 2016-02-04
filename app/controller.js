@@ -1,38 +1,38 @@
-app.controller("MainController", function($scope){
+app.controller("MainController", function ($scope) {
     $scope.test = "test"
 
-// $scope.question = {
-//     title: "",
-//     body: "",
-//     answer: [
-//         {
-//         comment:[
-//     {
-//             vote:"",
-//             body: "",  
+    // $scope.question = {
+    //     title: "",
+    //     body: "",
+    //     answers: [
+    //         {
+    //         comments:[
+    //     {
+    //             vote:"",
+    //             body: "",  
                 
-//             }
-// ],
-//         vote: "",
-//         body: "",
-//         }],
-//     comment: [
-//         {
-//             vote:"",
-//             body: "",
-//         }
-//     ],
-//     vote: "",
-//     dateSubmitted: "",
-// };
+    //             }
+    // ],
+    //         vote: "",
+    //         body: "",
+    //         }],
+    //     comments: [
+    //         {
+    //             vote:"",
+    //             body: "",
+    //         }
+    //     ],
+    //     vote: "",
+    //     dateSubmitted: "",
+    // };
 
     $scope.questionList = [
         {
             title: " What the @#$% are we doing??",
             body: "I dont know what I am doing. For that matter where I even am!",
-            answer: [
+            answers: [
                 {
-                    comment: [
+                    comments: [
                         {
                             vote: "-5",
                             body: "get a life",
@@ -46,7 +46,7 @@ app.controller("MainController", function($scope){
                     body: "learn to learn",
                 },
                 {
-                    comment: [
+                    comments: [
                         {
                             vote: "-5",
                             body: "stand 1",
@@ -60,7 +60,7 @@ app.controller("MainController", function($scope){
                     vote: "5000",
                     body: "stand in the place where you were",
                 }],
-            comment: [
+            comments: [
                 {
                     vote: "5",
                     body: "to the question",
@@ -72,9 +72,9 @@ app.controller("MainController", function($scope){
         {
             title: "Why is the sky blue",
             body: "I dont understand why the sky is blue. i fell like it is like polar bear fur",
-            answer: [
+            answers: [
                 {
-                    comment: [
+                    comments: [
                         {
                             body: "doin it wrong, MERICA!!!",
                             vote: "7"
@@ -83,7 +83,7 @@ app.controller("MainController", function($scope){
                     vote: "2",
                     body: "stuff bounces of the sky",
                 }],
-            comment: [
+            comments: [
                 {
                     vote: "-3",
                     body: "tree hugger!",
@@ -95,23 +95,6 @@ app.controller("MainController", function($scope){
 
     ]
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
 
 
@@ -135,5 +118,22 @@ app.controller("MainController", function($scope){
 
 
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 });
