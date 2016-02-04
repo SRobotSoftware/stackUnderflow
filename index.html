@@ -68,7 +68,7 @@
             <h1 ng-if="obj.title">{{obj.title}}</h1>
             <p>{{ obj.body }}</p>
 
-            <ul ng-if="obj.vote">
+            <ul ng-if="obj.vote || obj.vote === 0">
                 <div class="">
                     <a ng-click="incVote(obj)" class="glyphicon glyphicon-chevron-up"></a>
                     <div>{{obj.vote}}</div>
