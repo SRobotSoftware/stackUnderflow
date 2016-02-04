@@ -1,6 +1,12 @@
 app.controller("MainController", function ($scope) {
     $scope.test = "test"
-
+    $scope.incVote = function (obj){
+        obj.vote++;
+    }
+    
+     $scope.decVote = function (obj){
+        obj.vote--;
+    }
     // $scope.question = {
     //     title: "",
     //     body: "",

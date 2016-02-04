@@ -70,9 +70,9 @@
 
             <ul ng-if="obj.vote">
                 <div class="">
-                    <div class="glyphicon glyphicon-chevron-up"></div>
+                    <a ng-click="incVote(obj)" class="glyphicon glyphicon-chevron-up"></a>
                     <div>{{obj.vote}}</div>
-                    <div class="glyphicon glyphicon-chevron-down"></div>
+                    <a ng-click="decVote(obj)"class="glyphicon glyphicon-chevron-down"></a>
                 </div>
             </ul>
             <ul ng-if="obj.comments">
