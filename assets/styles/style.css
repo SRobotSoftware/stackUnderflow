@@ -13,20 +13,17 @@
      background:grey;
 }
 .comment{
-    background: cornsilk;
+    display: inline-block;
     text-align: center;
-    /*border: 1 solid black*/
+    vertical-align: 20;
+    border: 1 solid black
 }
 .page-header{
     text-align: center;
     background: lightgrey;
     /*border: 1px black solid;*/
     margin-top: 20px;
-
 }
 .container{
     /*border: 1px solid black;*/
-}
-.vote{
-    text-align: left;
 }
