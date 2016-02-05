@@ -12,81 +12,80 @@
 <body ng-controller="MainController">
     <div class="container well well-lg">
         <div class="page-header">
-            <h1>Hal has answers<small></small></h1>
+            <h1>Hal has answers <small> Click HAL to ask a question</small></h1>
+            <span ng-click="open()"><img src="assets/img/hal.gif" height = "100px" alt="hal image"></span>
         </div>
     </div>
+    <div class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <p>One fine body&hellip;</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
     <div class="container well well-lg">
 
         <div class="panel panel-default">
-            <ul>
-                <li ng-repeat="obj in questionList" ng-include="'questionView'"></li>
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="obj in questionList" ng-include="'questionView'"></li>
             </ul>
         </div>
-
-
-        <!--<div class="panel panel-default" ng-repeat="t in questionList" container="question">
-            <div class="questionTitle row panel-heading well well-lg">
-                <h2>Question: {{t.title}}</h2>
-            </div>
-            <div class="questionBody row panel-body well well-sm">
-                {{t.body}}
-                <ng-include src="'vote.html'"></ng-include>
-            </div>
-            <div ng-repeat="t in t.comment" class="comment row panel-body well well-sm">
-                {{t.body}}
-                <ng-include src="'vote.html'"></ng-include>
-            </div>
-            <div>
-                <div ng-repeat="answer in question.answer" class="answerTitle row">
-                <h2>Answer Title: {{answer.title}} </h2>
-            </div>
-                <div ng-repeat="t in t.answer" class="answerBody row panel-body well well-sm">
-                    {{t.body}}
-                    <ng-include src="'vote.html'"></ng-include>
-                    <div ng-repeat="t in t.comment" class="comment row panel-body well well-sm">
-                        {{t.body}}
-                        <ng-include src="'vote.html'"></ng-include>
-                    </div>
-                </div>
-            </div>
-        </div>-->
     </div>
 
 
+    <script type="text/ng-template" id="questionView">
+        <div class="panel panel-default">
+            <h1 ng-if="obj.title">{{obj.title}}</h1>
+            <a class="pull-right glyphicon" ng-click="isCollapsed = !isCollapsed" ng-class="{'glyphicon-chevron-down': !isCollapsed, 'glyphicon-chevron-right': isCollapsed}"></a>
+            <div uib-collapse="isCollapsed">
+
+                    <div class="well well-sm row">
+                <div ng-if="obj.vote || obj.vote === 0">
+                        <span class="pull-left">
+                            <a ng-click="incVote(obj)" class="glyphicon glyphicon-chevron-up"></a>
+                            </br> {{obj.vote}}</br>
+                            <a ng-click="decVote(obj)" class="glyphicon glyphicon-chevron-down"></a>
+                        </span>
+                        <span class="comment col-sm-11">
+                            {{ obj.body }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="list-group" ng-if="obj.comments">
+                <div class="list-group-item" ng-repeat="obj in obj.comments" ng-include="'questionView'">
+                </div>
+                <button ng-click="submitComment()">Submit Comment</button>
+            </div>
+
+            <div class="list-group" ng-if="obj.answers" class="list-group">
+                <div class="list-group-item alert alert-success" ng-repeat="obj in obj.answers" ng-include="'questionView'">
+                </div>
+                <button ng-click="submitAnswer()">Submit Answer</button>
+            </div>
+        </div>
+    </script>
     <!--JS Components-->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
-    <!--Custom Application-->
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="assets/plugins/ui-bootstrap/ui-bootstrap.min.js"></script>
     <script src="app/app.js"></script>
-    <script src="app/controller.js">
-
-    </script>
-    
-    <script type="text/ng-template" id="questionView">
-            <div class="panel panel-default">
-                <h1 ng-if="obj.title">{{obj.title}}</h1>
-                <p>{{ obj.body }}</p>
-
-                <ul ng-if="obj.vote">
-                    <div class="">
-                        <div class="glyphicon glyphicon-chevron-up"></div>
-                        <div>{{obj.vote}}</div>
-                        <div class="glyphicon glyphicon-chevron-down"></div>
-                    </div>
-                </ul>
-
-                <ul ng-if="obj.comments">
-                    <li ng-repeat="obj in obj.comments" ng-include="'questionView'">
-                    </li>
-                </ul>
-
-                <ul ng-if="obj.answers" class="list-group">
-                    <li class="list-group-item alert alert-success" ng-repeat="obj in obj.answers" ng-include="'questionView'">
-                    </li>
-                </ul>
-           </div>
-        </script>
+    <script src="app/controller.js"></script>
 </body>
 
 </html>

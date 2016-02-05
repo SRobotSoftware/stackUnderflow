@@ -1,0 +1,21 @@
+{
+  "name": "stackUnderflow",
+  "homepage": "https://github.com/ttaddicken/stackUnderflow",
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.4.9",
+    "bootstrap": "^3.3.6",
+    "angular-animate": "^1.4.9"
+  }
+}
