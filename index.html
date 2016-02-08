@@ -47,8 +47,8 @@
 
 
     <script type="text/ng-template" id="questionView">
-            <a class="pull-right glyphicon" ng-click="isCollapsed = !isCollapsed" ng-class="{'glyphicon-chevron-down': !isCollapsed, 'glyphicon-chevron-right': isCollapsed}"></a>
         <div class="panel panel-default">
+        <a class="pull-right glyphicon" ng-click="isCollapsed = !isCollapsed" ng-class="{'glyphicon-chevron-down': !isCollapsed, 'glyphicon-chevron-right': isCollapsed}"></a>
             <h1 ng-if="obj.title">{{obj.title}}</h1>
             <div uib-collapse="isCollapsed">
 
@@ -64,7 +64,7 @@
                         </span>
                     </div>
                 </div>
-            </div>
+            
             <div class="list-group" ng-if="obj.comments">
                 <div class="list-group-item" ng-repeat="obj in obj.comments" ng-include="'questionView'">
                 </div>
@@ -75,6 +75,7 @@
                 <div class="list-group-item alert alert-success" ng-repeat="obj in obj.answers" ng-include="'questionView'">
                 </div>
                 <button ng-click="submitAnswer()">Submit Answer</button>
+            </div>
             </div>
         </div>
     </script>
