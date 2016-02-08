@@ -52,8 +52,8 @@
             <a class="pull-right glyphicon" ng-click="isCollapsed = !isCollapsed" ng-class="{'glyphicon-chevron-down': !isCollapsed, 'glyphicon-chevron-right': isCollapsed}"></a>
             <div uib-collapse="isCollapsed">
 
-                    <div class="well well-sm row">
-                <div ng-if="obj.vote || obj.vote === 0">
+                <div class="well well-sm row">
+                    <div ng-if="obj.vote || obj.vote === 0">
                         <span class="pull-left">
                             <a ng-click="incVote(obj)" class="glyphicon glyphicon-chevron-up"></a>
                             </br> {{obj.vote}}</br>
