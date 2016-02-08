@@ -47,9 +47,9 @@
 
 
     <script type="text/ng-template" id="questionView">
+            <a ng-if="obj.question" class="pull-right glyphicon" ng-click="isCollapsed = !isCollapsed" ng-class="{'glyphicon-chevron-down': !isCollapsed, 'glyphicon-chevron-right': isCollapsed}"></a>
         <div class="panel panel-default">
             <h1 ng-if="obj.title">{{obj.title}}</h1>
-            <a class="pull-right glyphicon" ng-click="isCollapsed = !isCollapsed" ng-class="{'glyphicon-chevron-down': !isCollapsed, 'glyphicon-chevron-right': isCollapsed}"></a>
             <div uib-collapse="isCollapsed">
 
                     <div class="well well-sm row">
