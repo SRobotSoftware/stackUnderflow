@@ -72,7 +72,7 @@
             </div>
 
             <div class="list-group" ng-if="obj.answers" class="list-group">
-                <div class="list-group-item alert alert-success" ng-repeat="obj in obj.answers" ng-include="'questionView'">
+                <div class="list-group-item alert alert-default" ng-repeat="obj in obj.answers" ng-include="'questionView'">
                 </div>
                 <button ng-click="submitAnswer()">Submit Answer</button>
             </div>
