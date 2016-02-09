@@ -4,12 +4,16 @@ app.controller("MainController", function ($scope, $uibModal, FBREF, $firebaseAr
     var db = new Firebase(FBREF);
     $scope.isCollapsed = true;
     $scope.test = "test";
+    $scope.questionList = $firebaseArray(new Firebase(FBREF + 'questionList'));
+    
     $scope.incVote = function (obj) {
         obj.vote++;
+        $scope.questionList.$save(obj);
     }
 
     $scope.decVote = function (obj) {
         obj.vote--;
+        $scope.questionList.$save(obj);
     }
 
     $scope.open = function () {
@@ -30,16 +34,13 @@ app.controller("MainController", function ($scope, $uibModal, FBREF, $firebaseAr
         modalInstance.result.then(function (newQuestion) {
             debugger;
             newQuestion.dateSubmitted = Date.now();
-            newQuestion.comments = [];
-            newQuestion.answers = [];
             newQuestion.vote = 0;
-            $scope.questionList.push(newQuestion);
+            $scope.questionList.$add(newQuestion);
         }, function () {
             console.log('Modal dismissed at: ' + new Date());
         });
     }
 
-    $scope.questionList = $firebaseArray(new Firebase(FBREF + 'questionList'));
     
     // $scope.question = {
     //     title: "",
