@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="assets/styles/style.css">
 </head>
-
-
 <body>
     <div ng-controller="AuthController as ac">
         <!--<button ng-click="facebookLogin()">LOGIN WITH Facebook</button>-->
@@ -33,16 +31,11 @@
             <h1>Welcome {{member.username}}</h1>
         </div>
     </div>
- 
-
-
-
-
-<div> ng-controller="MainController">
+<div ng-controller="MainController">
     
     <!--This section is for filters-->
-    <input type="text" ng-model="query" />
-    <div ng-class="sortOrder = 'obj.vote'"></div>
+    <!--<input type="text" ng-model="query" />
+    <div ng-class="sortOrder = 'obj.vote'"></div>-->
     <!--<button ng-click="sortOrder = '-dueDate'">Sort D</button>-->
     
     <!--<ul>
@@ -60,7 +53,7 @@
         </div>
     </div>
     <!--this is where we will start the sort-->
-    <li ng-repeat="questions in questionList | filter: query | orderBy: sortOrder">
+    <!--<li ng-repeat="questions in questionList | filter: query | orderBy: sortOrder">-->
     <div class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
