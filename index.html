@@ -10,12 +10,28 @@
 </head>
 
 <body ng-controller="MainController">
+    
+    <!--This section is for filters-->
+    <input type="text" ng-model="query" />
+    <div ng-class="sortOrder = 'obj.vote'"></div>
+    <!--<button ng-click="sortOrder = '-dueDate'">Sort D</button>-->
+    
+    <!--<ul>
+        <li ng-repeat="chore in todos | filter: query | orderBy: sortOrder">
+            <h3>{{chore.responsibleParty}} - {{chore.task}} </h3>
+            <p>{{chore.dueDate | date}} : {{chore.estTime}}</p>
+        </li>
+    </ul>-->
+    <!--end filters-->
+    
     <div class="container well well-lg">
         <div class="page-header">
             <h1>Hal has answers <small> Click HAL to ask a question</small></h1>
             <span ng-click="open()"><img src="assets/img/hal.gif" height = "100px" alt="hal image"></span>
         </div>
     </div>
+    <!--this is where we will start the sort-->
+    <li ng-repeat="questions in questionList | filter: query | orderBy: sortOrder">
     <div class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
