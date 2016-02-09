@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="assets/styles/style.css">
 </head>
+
 <body>
     <div ng-controller="AuthController as ac">
         <!--<button ng-click="facebookLogin()">LOGIN WITH Facebook</button>-->
@@ -31,48 +32,49 @@
             <h1>Welcome {{member.username}}</h1>
         </div>
     </div>
-<div ng-controller="MainController">
-    
-    <!--This section is for filters-->
-    <!--<input type="text" ng-model="query" />
+    <div ng-controller="MainController">
+
+        <!--This section is for filters-->
+        <!--<input type="text" ng-model="query" />
     <div ng-class="sortOrder = 'obj.vote'"></div>-->
-    <!--<button ng-click="sortOrder = '-dueDate'">Sort D</button>-->
-    
-    <!--<ul>
+        <!--<button ng-click="sortOrder = '-dueDate'">Sort D</button>-->
+
+        <!--<ul>
         <li ng-repeat="chore in todos | filter: query | orderBy: sortOrder">
             <h3>{{chore.responsibleParty}} - {{chore.task}} </h3>
             <p>{{chore.dueDate | date}} : {{chore.estTime}}</p>
         </li>
     </ul>-->
-    <!--end filters-->
-    
-    <div class="container well well-lg">
-        <div class="page-header">
-            <h1>Hal has answers <small> Click HAL to ask a question</small></h1>
-            <span ng-click="open()"><img src="assets/img/hal.gif" height = "100px" alt="hal image"></span>
-        </div>
-    </div>
-    <!--this is where we will start the sort-->
-    <!--<li ng-repeat="questions in questionList | filter: query | orderBy: sortOrder">-->
-    <div class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Modal title</h4>
-                </div>
-                <div class="modal-body">
-                    <p>One fine body&hellip;</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-                <!-- /.modal-content -->
+        <!--end filters-->
+
+        <div class="container well well-lg">
+            <div class="page-header">
+                <h1>Hal has answers <small> Click HAL to ask a question</small></h1>
+                <span ng-click="open()"><img src="assets/img/hal.gif" height = "100px" alt="hal image"></span>
             </div>
-            <!-- /.modal-dialog -->
         </div>
-        <!-- /.modal -->
+        <!--this is where we will start the sort-->
+        <!--<li ng-repeat="questions in questionList | filter: query | orderBy: sortOrder">-->
+        <div class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>One fine body&hellip;</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
+        </div>
         <div class="container well well-lg">
 
             <div class="panel panel-default">
