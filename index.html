@@ -9,39 +9,64 @@
     <link rel="stylesheet" href="assets/styles/style.css">
 </head>
 
-<body ng-controller="MainController">
-    <div class="container well well-lg">
-        <div class="page-header">
-            <h1>Hal has answers <small> Click HAL to ask a question</small></h1>
-            <span ng-click="open()"><img src="assets/img/hal.gif" height = "100px" alt="hal image"></span>
-        </div>
-    </div>
-    <div class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Modal title</h4>
-                </div>
-                <div class="modal-body">
-                    <p>One fine body&hellip;</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-    <!-- /.modal -->
-    <div class="container well well-lg">
+<body>
+    <div ng-controller="AuthController as ac">
+        <!--<button ng-click="facebookLogin()">LOGIN WITH Facebook</button>-->
+        <!--<button ng-click="googleLogin()">LOGIN WITH Google</button>-->
 
-        <div class="panel panel-default">
-            <ul class="list-group">
-                <li class="list-group-item" ng-repeat="obj in questionList" ng-include="'questionView'"></li>
-            </ul>
+        <form ng-submit="submitForm()" ng-show="!member">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" ng-model="ac.user.email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" ng-model="ac.user.password">
+            </div>
+            <div class="button-group">
+                <button type="submit" ng-click="submitForm = login">Login</button>
+                <button type="submit" ng-click="submitForm = register">Register</button>
+            </div>
+        </form>
+        <div ng-show="member">
+            <h1>Welcome {{member.username}}</h1>
+        </div>
+    </div>
+
+    <div ng-controller="MainController">
+        <div class="container well well-lg">
+            <div class="page-header">
+                <h1>Hal has answers <small> Click HAL to ask a question</small></h1>
+                <span ng-click="open()"><img src="assets/img/hal.gif" height = "100px" alt="hal image"></span>
+            </div>
+        </div>
+        <div class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>One fine body&hellip;</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+        <div class="container well well-lg">
+
+            <div class="panel panel-default">
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="obj in questionList" ng-include="'questionView'"></li>
+                </ul>
+            </div>
         </div>
     </div>
 
